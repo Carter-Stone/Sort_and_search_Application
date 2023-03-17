@@ -36,6 +36,25 @@ namespace ReadTxtFiles
 
                 }
             }
+            // prints the 10th integer of each array
+            Console.WriteLine("Every 10th value in each array: ");
+            foreach (int[] array in arrays)
+            {
+                for (int i = 0; i < array.Length; i += 10)
+                {
+                    Console.Write(array[i] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            //prompt the user for a value to find
+            Console.WriteLine("Enter a Value to Search for: ");
+            int value = int.Parse(Console.ReadLine());
+
+            //find the value in the array
+            List<int> locations = new List<int>();
+            for (int i = 0; i < )
+
         }
     }
 }
