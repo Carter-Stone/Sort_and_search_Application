@@ -14,7 +14,7 @@ namespace Sort_and_Search_Application
             var Road = File.ReadAllLines(Directory + Path);
         foreach (var line in Road)
             {
-                list.Add(Convert.ToInt32(line));
+                list.Add(Convert.ToInt16(line));
             }
             return list.ToArray();
         }
