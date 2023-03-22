@@ -1,8 +1,13 @@
-﻿//using System;
-//using System.Runtime.CompilerServices;
-namespace ReadTxtFiles
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.PortableExecutable;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
 {
-    class Program
+    internal class SortandSearchApplication
     {
         static void Main(string[] args)
         {
@@ -12,19 +17,23 @@ namespace ReadTxtFiles
 
             //read each file and create individual arrays
             List<int[]> arrays = new List<int[]>();
-            foreach (string filePath in Directory.GetFiles(directoryPath, "*.txt"))
+            foreach (string filePath in Directory.GetFiles(directoryPath, ".txt"))
             {
                 string[] lines = File.ReadAllLines(filePath);
                 int[] array = Array.ConvertAll(lines, int.Parse); //convert strings into 32bit integers
                 arrays.Add(array);
             }
+            //if (arrays.Count < 1){
+            //    Main(args);
+            //}
+            
             //sort into ascending order
             int N = 0;
             foreach (int[] array in arrays)
             {
                 for (int i = 0; i < array.Length; i++)
                 {
-                    for (int j = i + 1; j <= array.Length; j++)
+                    for (int j = i + 1; j < array.Length; j++)
                     {
                         if (array[i] > array[j])
                         {
@@ -36,6 +45,8 @@ namespace ReadTxtFiles
 
                 }
             }
+
+
             // prints the 10th integer of each array
             Console.WriteLine("Every 10th value in each array: ");
             foreach (int[] array in arrays)
@@ -53,7 +64,7 @@ namespace ReadTxtFiles
 
             //find the value in the array using binary search
             List<int> locations = new List<int>();
-            foreach (int[]array in arrays)
+            foreach (int[] array in arrays)
             {
                 int left = 0;
                 int right = array.Length - 1;
@@ -74,10 +85,12 @@ namespace ReadTxtFiles
                         left = mid + 1;
                     }
                 }
-                    
+
             }
-            Console.WriteLine(locations);
+            Console.WriteLine("Locations of the value:");
+            Console.WriteLine(string.Join(",", locations));
         }
     }
 }
-              
+
+
