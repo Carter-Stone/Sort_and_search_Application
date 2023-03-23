@@ -17,16 +17,17 @@ namespace ConsoleApp2
 
             //read each file and create individual arrays
             List<int[]> arrays = new List<int[]>();
+            List<string[]> files = new List<string[]>();
             foreach (string filePath in Directory.GetFiles(directoryPath, ".txt"))
             {
                 string[] lines = File.ReadAllLines(filePath);
                 int[] array = Array.ConvertAll(lines, int.Parse); //convert strings into 32bit integers
                 arrays.Add(array);
+                files.Add(filePath);
             }
             //if (arrays.Count < 1){
             //    Main(args);
             //}
-            
             Console.WriteLine("For ascending sort type 'a', for descending sort type 'd'");
             if (Console.ReadLine == "a")
             {
@@ -73,6 +74,9 @@ namespace ConsoleApp2
             {
                 colsole.WriteLine("Invalid Input");
             }
+
+            Console.WriteLine("Select An array ");
+
 
             // prints the 10th integer of each array
             Console.WriteLine("Every 10th value in each array: ");
