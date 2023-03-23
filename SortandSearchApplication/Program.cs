@@ -27,25 +27,52 @@ namespace ConsoleApp2
             //    Main(args);
             //}
             
-            //sort into ascending order
-            int N = 0;
-            foreach (int[] array in arrays)
+            Console.WriteLine("For ascending sort type 'a', for descending sort type 'd'");
+            if (Console.ReadLine == "a")
             {
-                for (int i = 0; i < array.Length; i++)
+                //sort into ascending order
+                int N = 0;
+                foreach (int[] array in arrays)
                 {
-                    for (int j = i + 1; j < array.Length; j++)
+                    for (int i = 0; i < array.Length; i++)
                     {
-                        if (array[i] > array[j])
+                        for (int j = i + 1; j < array.Length; j++)
                         {
-                            N = array[i];
-                            array[i] = array[j];
-                            array[j] = N;
+                            if (array[i] > array[j])
+                            {
+                                N = array[i];
+                                array[i] = array[j];
+                                array[j] = N;
+                            }
                         }
                     }
-
                 }
             }
+            else if (Console.ReadLine == "d")
+            {
+                //sort into descending order
+                int P = 0;
+                foreach (int[] array in arrays)
+                {
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        for (int j = i + 1; j < array.Length; j++)
+                        {
+                            if (array[i] > array[j])
+                            {
+                                P = array[i];
+                                array[i] = array[j];
+                                array[j] = P;
+                            }
+                        }
 
+                    }
+                }
+            }
+            else
+            {
+                colsole.WriteLine("Invalid Input");
+            }
 
             // prints the 10th integer of each array
             Console.WriteLine("Every 10th value in each array: ");
